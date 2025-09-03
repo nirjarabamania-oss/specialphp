@@ -7,9 +7,9 @@ else{
     echo "connected successfully";
 }
 $table="create table course(
-    rollno INT(6) foreign key (rollno) references studentdata(rollno),
+    rollno INT(6),FOREIGN KEY (rollno) REFERENCES studentdata(rollno),
     studid INT(6) PRIMARY KEY,
-    semester INT(6) NOT NULL,
+    semester INT (6) NOT NULL,
     coursename VARCHAR(30) NOT NULL)";
     $result=mysqli_query($con,$table);
    if (!$result){
