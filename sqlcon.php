@@ -6,11 +6,12 @@ if(!$con){
 else{
     echo "connected successfully";
 }
-$result = mysqli_query($con,"create table course(
-    rollno INT(6) foreign key references studentdata(rollno),
-    courseid INT(6) PRIMARY KEY,
+$table="create table course(
+    roll_no INT(6) foreign key references studentdata(rollno),
+    studid INT(6) PRIMARY KEY,
     semester INT(6) NOT NULL,
-    cousename VARCHAR(30) NOT NULL)");
+    cousename VARCHAR(30) NOT NULL)";
+    $result=mysqli_query($con,$table);
    if (!$result){
        die("table not created". mysqli_error( $con));
    }
