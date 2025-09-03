@@ -6,18 +6,18 @@ if (!$con){
 else{
     echo "connected successfully";
 }
-$table="CREATE TABLE studentdata(
+$table="create table studentdata(
     rollno INT(6) PRIMARY KEY,
     firstname VARCHAR(30) NOT NULL,
     lastname VARCHAR(30) NOT NULL,
     birthdate DATE,
     )";
-    $result=mysqli_query($con,$table);
+    $result=mysqli_query(mysql: $con,query: $table);
     if (!$result){
-        die("table not created". mysqli_error($con));
+        die("table not created". mysqli_error(mysql: $con));
     }
     else{
         echo "table created successfully";
     }
-    mysqli_close($con);
+    mysqli_close(mysql: $con);
     ?>
