@@ -10,9 +10,8 @@ $table="create table studentdata(
     rollno INT(6) PRIMARY KEY,
     firstname VARCHAR(30) NOT NULL,
     lastname VARCHAR(30) NOT NULL,
-    birthdate DATE,
-    )";
-    $result=mysqli_query(mysql: $con,query: $table);
+    birthdate DATE )";
+ $result=mysqli_query(mysql: $con,query: $table);
     if (!$result){
         die("table not created". mysqli_error(mysql: $con));
     }
