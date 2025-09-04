@@ -52,11 +52,11 @@ if (mysqli_num_rows($result )) {
 else{  
     echo "0 results";
 }
-$result = mysqli_query($con,"select studentdata.rollno,studentdata.firstname,enrollment.enrollmeantid from studentdata left join enrollmeant on studentdata.rollno=enrollmeant.rollno");
+$result = mysqli_query($con,"select studentdata.rollno,studentdata.firstname,enrollment.enrollmentid from studentdata left join enrollment on studentdata.rollno=enrollment.rollno");
 echo " Left Join of studentdata and enrollment table data:<br>";
 if (mysqli_num_rows($result )) {
     while($row = mysqli_fetch_assoc($result)){
-        echo "rollno: ".$row["rollno"]." - firstname: ".$row["firstname"]." -enrollmeantid : ".$row["enrollmeantid"]."<br>";
+        echo "rollno: ".$row["rollno"]." - firstname: ".$row["firstname"]." -enrollmentid : ".$row["enrollmentid"]."<br>";
     }
     echo "<br>";
 }
