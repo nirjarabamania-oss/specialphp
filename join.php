@@ -9,6 +9,7 @@ else{
 }
 
 $result = mysqli_query($con,"select*from studentdata");
+echo"studentdata table data:<br>";
 if (mysqli_num_rows($result )) {
     while($row = mysqli_fetch_assoc($result)){
         echo "rollno: ".$row["rollno"]." - Name: ".$row["firstname"]." ".$row["lastname"]." - birthdate: ".$row["birthdate"]."<br>";
@@ -19,6 +20,7 @@ else{
     echo "0 results";
 }
 $result = mysqli_query($con,"select*from course");
+echo"course table data:<br>";
 if (mysqli_num_rows($result )) {
     while($row = mysqli_fetch_assoc($result)){
         echo "rollno: ".$row["rollno"]." - studid: ".$row["studid"]." - semester: ".$row["semester"]."-cousename:".$row["coursename"]."<br>";
@@ -29,6 +31,7 @@ else{
     echo "0 results";
 }
 $result = mysqli_query($con,"select*from enrollment");
+echo "enrollment table data:<br>";
 if (mysqli_num_rows($result )) {
     while($row = mysqli_fetch_assoc($result)){
         echo "rollno: ".$row["rollno"]." - studid: ".$row["studid"]." -enrollmentid : ".$row["enrollmentid"]."<br>";
@@ -39,6 +42,7 @@ else{
     echo "0 results";
 }
 $result = mysqli_query($con,"select course.rollno,course.studid,course.coursename,enrollment.enrollmentid from course inner join enrollment on course.rollno=enrollment.rollno");
+echo" Inner Join of course and enrollment table data:<br>";
 if (mysqli_num_rows($result )) {
     while($row = mysqli_fetch_assoc($result)){
         echo "rollno: ".$row["rollno"]." - studid: ".$row["studid"]." -cousename:".$row["coursename"]." - enrollmentid : ".$row["enrollmentid"]."<br>";
@@ -48,6 +52,16 @@ if (mysqli_num_rows($result )) {
 else{  
     echo "0 results";
 }
-
+$result = mysqli_query($con,"select studentdata.rollno,studentdata.firstname,enrollment.enrollmeantid from studentdata left join enrollmeant on studentdata.rollno=enrollmeant.rollno");
+echo " Left Join of studentdata and enrollment table data:<br>";
+if (mysqli_num_rows($result )) {
+    while($row = mysqli_fetch_assoc($result)){
+        echo "rollno: ".$row["rollno"]." - firstname: ".$row["firstname"]." -enrollmeantid : ".$row["enrollmeantid"]."<br>";
+    }
+    echo "<br>";
+}
+else{  
+    echo "0 results";
+}
 mysqli_close($con);
 ?>
