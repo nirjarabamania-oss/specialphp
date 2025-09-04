@@ -63,5 +63,27 @@ if (mysqli_num_rows($result )) {
 else{  
     echo "0 results";
 }
+$result = mysqli_query($con,"select studentdata.rollno,studentdata.firstname,course.coursename from studentdata right join course on studentdata.rollno=course.rollno");
+echo " Right Join of studentdata and course table data:<br>";
+if (mysqli_num_rows($result )) {
+    while($row = mysqli_fetch_assoc($result)){
+        echo "rollno: ".$row["rollno"]." - firstname: ".$row["firstname"]." -cousename:".$row["coursename"]."<br>";
+    }
+    echo "<br>";
+}
+else{  
+    echo "0 results";
+}
+$result = mysqli_query($con,"select studentdata.rollno,studentdata.firstname,course.coursename from studentdata full outer join course on studentdata.rollno=course.rollno");
+echo " Full Outer Join of studentdata and course table data:<br>";
+if (mysqli_num_rows($result )) {
+    while($row = mysqli_fetch_assoc($result)){
+        echo "rollno: ".$row["rollno"]." - firstname: ".$row["firstname"]." -cousename:".$row["coursename"]."<br>";
+    }
+    echo "<br>";
+}
+else{  
+    echo "0 results";
+}
 mysqli_close($con);
 ?>
