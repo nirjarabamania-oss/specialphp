@@ -74,7 +74,7 @@ if (mysqli_num_rows($result )) {
 else{  
     echo "0 results";
 }
-$result = mysqli_query($con,"select studentdata.fristname,course.coursename,course.courseid,enrollment.enrollmentid from table1 as studentdata inner join table2 as course on studentdata.rollno=course.rollno inner join table3 as enrollment on course.studid=enrollment.studid");
+$result = mysqli_query($con,"select studentdata.fristname,course.coursename,course.courseid,enrollment.enrollmentid from studentdata as table1 inner join course as table2 on studentdata.rollno=course.rollno inner join enrollment as table3 on course.studid=enrollment.studid");
 echo "Three tabke join ";
 if (mysqli_num_rows($result )) {
     while($row = mysqli_fetch_assoc($result)){
