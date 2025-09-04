@@ -74,7 +74,7 @@ if (mysqli_num_rows($result )) {
 else{  
     echo "0 results";
 }
-$result = mysqli_query($con,"select studentdata.rollno,studentdata.firstname,course.coursename from studentdata full outer join course on studentdata.rollno=course.rollno");
+$result = mysqli_query($con,"select studentdata.rollno,studentdata.firstname,course.coursename from studentdata outer join course on studentdata.rollno=course.rollno");
 echo " Full Outer Join of studentdata and course table data:<br>";
 if (mysqli_num_rows($result )) {
     while($row = mysqli_fetch_assoc($result)){
