@@ -42,7 +42,7 @@ else{
     echo "0 results";
 }
 $result = mysqli_query($con,"select course.rollno,course.studid,course.coursename,enrollment.enrollmentid from course inner join enrollment on course.rollno=enrollment.rollno");
-echo" Inner Join of course and enrollment table data:<br>";
+echo" Inner Join of course and enrollment table data showing which student is involve in which course:<br>";
 if (mysqli_num_rows($result )) {
     while($row = mysqli_fetch_assoc($result)){
         echo "rollno: ".$row["rollno"]." - studid: ".$row["studid"]." -cousename:".$row["coursename"]." - enrollmentid : ".$row["enrollmentid"]."<br>";
@@ -73,14 +73,6 @@ if (mysqli_num_rows($result )) {
 }
 else{  
     echo "0 results";
-}
-$result = mysqli_query($con,"select studentdata.fristname,course.coursename,course.courseid,enrollment.enrollmentid from studentdata as table1 inner join course as table2 on studentdata.rollno=course.rollno inner join enrollment as table3 on course.studid=enrollment.studid");
-echo "Three tabke join ";
-if (mysqli_num_rows($result )) {
-    while($row = mysqli_fetch_assoc($result)){
-        echo "name".$row["fristname"]."course".$row["course"]."courseid".$row["courseid"]."enrollmentid".$row["enrollmentid"]."<br>";
-    }
-    echo "<br>";
 }
 mysqli_close($con);
 ?>
