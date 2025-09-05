@@ -14,7 +14,7 @@ if ($result) {
 else{
     die("index not created". mysqli_error($con));
 }
-$result=mysqli_query($con,"select fristname,lastname ,rollno from studentdata where fristname like 'n%' group by rollno"); 
+$result = mysqli_query($con, "SELECT fristname, lastname, rollno FROM studentdata WHERE fristname LIKE 'n%' GROUP BY rollno, fristname, lastname");
 if ($result) {
     echo "query executed successfully";
     echo"<br>";
