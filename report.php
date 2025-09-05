@@ -6,7 +6,7 @@ if(!$con){
 else{
     echo"connected succesfully";
 }
-$result = mysqli_query($con,"SELECT rollno, fristname, lastname
+$result = mysqli_query($con,"SELECT rollno, lastname
 FROM Studentdata
 ORDER BY rollno 
 LIMIT 3;");
@@ -15,7 +15,7 @@ if(!$result){
 }
 else{
     while($row = mysqli_fetch_assoc($result)){
-        echo "rollno".$row["rollno"]."fristname".$row["fristname"]."lastname".$row["lastname"];
+        echo "rollno".$row["rollno"]."lastname".$row["lastname"];
         echo"<br>";
     }
 }
