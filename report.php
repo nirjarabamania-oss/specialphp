@@ -1,0 +1,23 @@
+<?php
+$con = mysqli_connect("localhost","root","","student info");
+if(!$con){
+    die("mysql error". mysqli_connect_error());
+}
+else{
+    echo"connected succesfully";
+}
+$result = mysqli_query($con,"SELECT rollno, fristname, lastname
+FROM Studentdata
+ORDER BY rollno 
+LIMIT 3;");
+if(!$result){
+    die("query error". mysqli_error($con));
+}
+else{
+    while($row = mysqli_fetch_assoc($result)){
+        echo "rollno".$row["rollno"]."fristname".$row["fristname"]."lastname".$row["lastname"];
+        echo"<br>";
+    }
+}
+mysqli_close($con);
+?>
