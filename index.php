@@ -7,7 +7,7 @@ if ( $con) {
 else{
     die("connection failed". mysqli_connect_error());
 }
-$result=mysqli_query($con,"create index stud on studentdata(rollno)");
+$result = mysqli_query($con, "CREATE INDEX stud ON studentdata(rollno)");
 if ($result) {
     echo "index created successfully";
 }
