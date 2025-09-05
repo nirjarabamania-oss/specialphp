@@ -7,24 +7,11 @@ if ( $con) {
 else{
     die("connection failed". mysqli_connect_error());
 }
-$result = mysqli_query($con, "CREATE INDEX studinfo ON studentdata(rollno)");
+$result = mysqli_query($con, "CREATE INDEX Quik ON studentdata(rollno)");
 if ($result) {
     echo "index created successfully";
 }
-else{
+else {
     die("index not created". mysqli_error($con));
 }
-$result = mysqli_query($con, "SELECT fristname, lastname, rollno FROM studentdata WHERE fristname LIKE 'n%' GROUP BY rollno, fristname, lastname");
-if ($result) {
-    echo "query executed successfully";
-    echo"<br>";
-    while($row=mysqli_fetch_assoc($result)){
-        echo "fristname:".$row['fristname']." lastname:".$row['lastname']." rollno:".$row['rollno'];
-        echo"<br>";
-    }
-}
-else{
-    die("query not executed". mysqli_error($con));
-}
-mysqli_close($con);
 ?>
