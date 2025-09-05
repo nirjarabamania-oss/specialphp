@@ -20,5 +20,15 @@ else{
         echo"<br>";
     }
 }
+$result = mysqli_query($con,"SELECT rollno, lastname from studentdata group by rollno having rollno>3");
+if(!$result){
+    die("query error". mysqli_error($con));
+}
+else{
+    while($row = mysqli_fetch_assoc($result)){
+        echo "rollno".$row["rollno"] ."lastname".$row["lastname"];
+        echo"<br>";
+    }
+}
 mysqli_close($con);
 ?>
