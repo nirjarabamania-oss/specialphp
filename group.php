@@ -6,7 +6,7 @@ if($con){
 else{
     die("connection failed". mysqli_connect_error());
 }
-$result = mysqli_query($con, "SELECT fristname, lastname, rollno FROM studentdata GROUP BY rollno");
+$result = mysqli_query($con, "SELECT fristname, lastname, rollno FROM studentdata GROUP BY rollno,fristnmae,lastname");
 if(mysqli_num_rows($result) == 0){ 
     echo "no records found";
 }
