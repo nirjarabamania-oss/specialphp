@@ -5,6 +5,7 @@ if(!$con) {
 }
 else {
     echo"connected succesfully";
+    echo"<br>";
 }
 $result = mysqli_query($con,"select * from studentdata");
 if(!$result) {
