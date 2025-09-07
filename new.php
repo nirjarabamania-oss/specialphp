@@ -34,5 +34,31 @@ else{
     echo "data inserted successfully";
     echo "<br>";
 }
+$result = mysqli_query($con,"select * from studentdata");
+if (!$result){
+    die("table not selected". mysqli_error($con));
+}
+else{
+    while($row = mysqli_fetch_array($result)) {
+        echo "rollno: ".$row["rollno"]." - Name: ".$row["firstname"]." ".$row["lastname"]." - birthdate: ".$row["birthdate"]." - enrollmentid: ".$row["enrollmentid"]."<br>";
+    }
+}   
+$result = mysqli_query($con,"delete from studentdata where rollno=5");
+if (!$result){
+    die("data not deleted". mysqli_error($con));
+}
+else{
+    echo "data deleted successfully";
+    echo "<br>";
+}
+$result = mysqli_query($con,"select * from studentdata");
+if (!$result){
+    die("table not selected". mysqli_error($con));
+}
+else{
+    while($row = mysqli_fetch_array($result)) {
+        echo "rollno: ".$row["rollno"]." - Name: ".$row["firstname"]." ".$row["lastname"]." - birthdate: ".$row["birthdate"]." - enrollmentid: ".$row["enrollmentid"]."<br>";
+    }
+}
 mysqli_close($con);
 ?>
