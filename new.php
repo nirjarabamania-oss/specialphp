@@ -15,6 +15,7 @@ if (!$result){
 }
 else{
     echo "table updated successfully";
+    echo "<br>";
 }
 $result = mysqli_query($con,"select * from studentdata");
 if (!$result){
