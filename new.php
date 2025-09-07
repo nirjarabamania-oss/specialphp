@@ -60,6 +60,7 @@ else{
         echo "rollno: ".$row["rollno"]." - Name: ".$row["firstname"]." ".$row["lastname"]." - birthdate: ".$row["birthdate"]." - enrollmentid: ".$row["enrollmentid"]."<br>";
     }
 }
+echo"list of students with their course name and enrollment id"."<br>";
 $result = mysqli_query($con,"select studentdata.firstname,studentdata.lastname,course.coursename,enrollment.enrollmentid from studentdata join enrollment on studentdata.enrollmentid=enrollment.enrollmentid join course on enrollment.studid=course.studid");
 if (!$result){
     die("table not selected". mysqli_error($con));
