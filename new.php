@@ -60,5 +60,14 @@ else{
         echo "rollno: ".$row["rollno"]." - Name: ".$row["firstname"]." ".$row["lastname"]." - birthdate: ".$row["birthdate"]." - enrollmentid: ".$row["enrollmentid"]."<br>";
     }
 }
+$result = mysqli_query($con,"select studentdata.firstname,studentdata.lastname,course.coursename,enrollment.enrollmentid from studentdata join enrollment on studentdata.enrollmentid=enrollment.enrollmentid join course on enrollment.studid=course.studid");
+if (!$result){
+    die("table not selected". mysqli_error($con));
+}
+else{
+    while($row = mysqli_fetch_array($result)) {
+        echo "Name: ".$row["firstname"]." ".$row["lastname"]." - Course Name: ".$row["coursename"]." - Enrollment ID: ".$row["enrollmentid"]."<br>";
+    }
+}
 mysqli_close($con);
 ?>
