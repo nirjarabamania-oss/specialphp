@@ -6,7 +6,8 @@ if (!$con){
 else{
     echo "connected successfully";
 }
-$result = mysqli_query($con, "ALTER TABLE studentdata ADD COLUMN enrollmentid INT(6), ADD CONSTRAINT fk_enrollmentid FOREIGN KEY (enrollmentid) REFERENCES enrollment(enrollmentid)");
+# $result = mysqli_query($con, "ALTER TABLE studentdata ADD COLUMN enrollmentid INT(6), ADD CONSTRAINT fk_enrollmentid FOREIGN KEY (enrollmentid) REFERENCES enrollment(enrollmentid)");
+$result = mysqli_query($con,"update studentdata set enrollmentid=1 where rollno=1");
 if (!$result){
     die("table not altered". mysqli_error($con));
 }
